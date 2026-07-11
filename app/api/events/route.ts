@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { requireUser } from "@/lib/auth";
 import { readDb, writeDb } from "@/lib/db";
 
 function slugify(input: string) {
@@ -14,6 +15,7 @@ function slugify(input: string) {
 }
 
 export async function POST(request: Request) {
+  await requireUser();
   const form = await request.formData();
   const title = String(form.get("title") || "אירוע חדש");
   const startsAtValue = String(form.get("startsAt") || "");

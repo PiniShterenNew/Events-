@@ -17,7 +17,9 @@ function ensureRuntimeDb(): void {
 
 export function readDb(): Database {
   ensureRuntimeDb();
-  return JSON.parse(fs.readFileSync(RUNTIME_DB_PATH, "utf8")) as Database;
+  const db = JSON.parse(fs.readFileSync(RUNTIME_DB_PATH, "utf8")) as Database;
+  db.users ||= [];
+  return db;
 }
 
 export function writeDb(db: Database): void {

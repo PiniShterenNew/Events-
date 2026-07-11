@@ -279,9 +279,10 @@ button { cursor: pointer; }
 .auth-card p, .auth-card small { margin: 0; color: var(--muted); line-height: 1.6; }
 .auth-card .btn { width: 100%; margin-top: 4px; }
 .auth-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 6px; border-radius: 999px; background: #f0ece3; }
-.auth-tabs input { position: absolute; opacity: 0; }
-.auth-tabs label { text-align: center; border-radius: 999px; padding: 10px; color: var(--muted); font-weight: 900; cursor: pointer; }
-.auth-tabs input:checked + label { background: #fff; color: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.auth-tabs a { text-align: center; border-radius: 999px; padding: 10px; color: var(--muted); font-weight: 900; }
+.auth-tabs a.active { background: #fff; color: var(--accent-dark); box-shadow: var(--shadow-sm); }
+.auth-form { display: grid; gap: 16px; }
+.auth-alert { padding: 11px 13px; border-radius: 13px; background: var(--gold-soft); color: var(--gold); font-size: 13px; font-weight: 800; }
 .landing-features { max-width: 1180px; margin: auto; padding: 0 24px 90px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .feature-card { padding: 24px; }
 .feature-icon, .create-preview span { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 15px; color: var(--accent-dark); background: var(--accent-soft); }
@@ -304,3 +305,4 @@ button { cursor: pointer; }
   .landing-hero { padding-top: 26px; }
   .field-grid { grid-template-columns: 1fr; }
 }
+.user-note button { margin-top: 8px; padding: 0; border: 0; background: transparent; color: #fff; font-weight: 800; }

@@ -8,7 +8,7 @@ const items = [
   { href: "/e/pinhas-birthday", label: "עמוד האירוע", icon: CalendarIcon },
 ];
 
-export function AdminNav({ active }: { active: string }) {
+export function AdminNav({ active, userName, userEmail }: { active: string; userName: string; userEmail: string }) {
   return (
     <aside className="admin-sidebar">
       <Link href="/admin" className="brand-lockup">
@@ -26,9 +26,9 @@ export function AdminNav({ active }: { active: string }) {
           );
         })}
       </nav>
-      <div className="sidebar-note">
+      <div className="sidebar-note user-note">
         <span className="status-dot" />
-        <div><strong>מצב הדגמה</strong><p>הודעות נשמרות ביומן אך אינן נשלחות בפועל.</p></div>
+        <div><strong>{userName}</strong><p>{userEmail}</p><form action="/api/auth/logout" method="post"><button type="submit">יציאה</button></form></div>
       </div>
     </aside>
   );
