@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AuthPanel } from "@/components/AuthPanel";
 import { ArrowIcon, CalendarIcon, CheckIcon, MessageIcon, SparkIcon, UsersIcon } from "@/components/Icons";
 
 const features = [
@@ -7,7 +8,9 @@ const features = [
   { icon: <MessageIcon />, title: "תקשורת חלקה", text: "הודעות ותזכורות למי שעדיין לא ענה, עם תצוגה מקדימה ברורה." },
 ];
 
-export default function Home() {
+export default async function Home({ searchParams }: { searchParams?: Promise<{ auth?: string; mode?: string }> }) {
+  const params = await searchParams;
+
   return (
     <main className="landing-page">
       <nav className="landing-nav">
@@ -39,20 +42,7 @@ export default function Home() {
           </div>
         </div>
 
-        <form className="auth-card card" id="auth">
-          <div className="auth-tabs" aria-label="בחירת פעולה">
-            <input defaultChecked id="login" name="authMode" type="radio" />
-            <label htmlFor="login">כניסה</label>
-            <input id="signup" name="authMode" type="radio" />
-            <label htmlFor="signup">הרשמה</label>
-          </div>
-          <h2>ברוכים הבאים</h2>
-          <p>התחברו עם מייל וסיסמה כדי לנהל אירועים ומוזמנים.</p>
-          <label className="label">מייל<input className="input" name="email" placeholder="you@example.com" type="email" required /></label>
-          <label className="label">סיסמה<input className="input" name="password" placeholder="לפחות 8 תווים" type="password" minLength={8} required /></label>
-          <button className="btn btn-dark" type="submit">המשך למערכת</button>
-          <small>דמו חזיתי: לאחר חיבור אמיתי ניתן לחבר ספק Auth ולשמור משתמשים.</small>
-        </form>
+        <AuthPanel mode={params?.mode} message={params?.auth} />
       </section>
 
       <section className="landing-features" id="features">

@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { CalendarIcon, LocationIcon, SparkIcon } from "@/components/Icons";
+import { requireUser } from "@/lib/auth";
 
-export default function CreateEventPage() {
+export default async function CreateEventPage() {
+  await requireUser();
+
   return (
     <main className="create-page">
       <nav className="landing-nav">
