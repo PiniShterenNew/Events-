@@ -51,6 +51,14 @@ export interface Invitee {
   profile: InviteeProfile;
 }
 
+export interface UserRecord {
+  id: string;
+  name: string;
+  email: string;
+  passwordHash: string;
+  createdAt: string;
+}
+
 export interface MessageRecord {
   id: string;
   eventId: string;
@@ -65,4 +73,5 @@ export interface Database {
   event: EventData;
   invitees: Invitee[];
   messages: MessageRecord[];
+  users: UserRecord[];
 }
